@@ -1,7 +1,5 @@
 package asteroids;
 
-import java.util.*;
-import javax.swing.*;
 import java.awt.*;
 
 public class Bullet {
@@ -9,7 +7,7 @@ public class Bullet {
     public Rectangle hitBox;
     public int xSpeed, ySpeed, xPos, yPos, xOrig, yOrig;
     public int lenXFromOrig, lenYFromOrig;
-    public static int width = 10, height = 10, maxDist = 750;
+    public final int width = 10, height = 10, maxDist = 750;
     public boolean die;
 
     public Bullet(int x, int y, int xs, int ys) {

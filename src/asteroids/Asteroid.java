@@ -1,7 +1,6 @@
 package asteroids;
 
 import java.awt.*;
-import java.net.URL;
 import java.util.Random;
 
 public class Asteroid {

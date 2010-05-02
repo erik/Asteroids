@@ -1,10 +1,7 @@
 
 package asteroids;
 
-import java.util.*;
-import javax.swing.*;
 import java.awt.*;
-import java.awt.geom.AffineTransform;
 
 /**
  *

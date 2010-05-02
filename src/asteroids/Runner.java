@@ -12,66 +12,78 @@ public class Runner extends JFrame {
 
         public void keyPressed(KeyEvent e) {
             if (e.getKeyChar() == 'p') {
-                Stage.gameOn = !Stage.gameOn;
+                if (stage.gameOn()) {
+                    stage.setGameOff();
+                } else {
+                    stage.setGameOn();
+                }
             }
             if (e.getKeyCode() == KeyEvent.VK_UP) {
-                stage.keyUp = true;
+                stage.setKeyUp(true);
             }
             if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-                stage.keyDown = true;
+                stage.setKeyDown(true);
             }
             if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-                stage.keyRight = true;
+                stage.setKeyRight(true);
             }
             if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-                stage.keyLeft = true;
+                stage.setKeyLeft(true);
             }
             if (e.getKeyChar() == ' ') {
-                stage.keySpace = true;
+                stage.setKeySpace(true);
             }
             if (e.getKeyCode() == KeyEvent.VK_SHIFT) {
-                stage.keyShift = true;
+                stage.setKeyShift(true);
             }
             if (e.getKeyChar() == 's') {
-                Stage.keyStart = true;
+                stage.setKeyStart(true);
             }
             if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
                 System.exit(0);
             }
-            if (Runner.masterDebug) {
+            if (masterDebug) {
                 if (e.getKeyChar() == 'd') {
-                    Stage.debug = !Stage.debug;
+                    if (stage.getDebug()) {
+                        stage.setDebugOff();
+                    } else {
+                        stage.setDebugOn();
+                    }
                 }
                 if (e.getKeyChar() == '=') {
-                    AdditionalMethods.maxBullets++;
+                    stage.maxBullets++;
                 }
                 if (e.getKeyChar() == '-') {
-                    AdditionalMethods.maxBullets--;
+                    stage.maxBullets--;
                 }
                 if (e.getKeyChar() == 'i') {
-                    Stage.invin = !Stage.invin;
+                    if (stage.getInvin()) {
+                        stage.setInvinOff();
+                    } else {
+                        stage.setInvinOn();
+                    }
                 }
             }
         }
 
         public void keyReleased(KeyEvent e) {
             if (e.getKeyCode() == KeyEvent.VK_UP) {
-                stage.keyUp = false;
+                stage.setKeyUp(false);
             }
             if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-                stage.keyDown = false;
+                stage.setKeyDown(false);
             }
             if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-                stage.keyRight = false;
+                stage.setKeyRight(false);
             }
             if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-                stage.keyLeft = false;
+                stage.setKeyLeft(false);
             }
             if (e.getKeyChar() == ' ') {
-                stage.keySpace = false;
+                stage.setKeySpace(false);
             }
             if (e.getKeyCode() == KeyEvent.VK_SHIFT) {
-                stage.keyShift = false;
+                stage.setKeyShift(false);
             }
         }
 
@@ -85,12 +97,11 @@ public class Runner extends JFrame {
         }
 
         public void focusLost(FocusEvent e) {
-            stage.gameOn = false;
+            stage.setGameOff();
         }
     }
-    
     public Stage stage;
-    public static boolean masterDebug = true;
+    public boolean masterDebug = true;
 
     public Runner() throws Exception {
         super("Asteroids");
