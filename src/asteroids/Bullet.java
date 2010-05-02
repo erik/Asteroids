@@ -1,17 +1,9 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package asteroids;
 
 import java.util.*;
 import javax.swing.*;
 import java.awt.*;
 
-/**
- *
- * @author erikprice
- */
 public class Bullet {
 
     public Rectangle hitBox;
@@ -24,7 +16,6 @@ public class Bullet {
         this.xPos = x;
         this.yPos = y;
         this.xOrig = x;
-        String s = "Hi there\0";
         this.yOrig = y;
         this.xSpeed = xs;
         this.ySpeed = ys;

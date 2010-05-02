@@ -1,17 +1,9 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package asteroids;
 
 import java.awt.*;
 import java.net.URL;
 import java.util.Random;
 
-/**
- *
- * @author erikprice
- */
 public class Asteroid {
 
     public int scale;
@@ -135,7 +127,6 @@ public class Asteroid {
     public void rotate() {
         degrees = (rotation + degrees) % 360;
         degrees = (degrees < 0) ? 360 - -degrees : degrees;
-        //System.out.println("Degrees: " + degrees);
     }
     public static Image large;
     public static Image medium;

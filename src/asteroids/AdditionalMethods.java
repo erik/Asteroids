@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package asteroids;
 
 import java.util.*;
@@ -61,7 +57,6 @@ public class AdditionalMethods {
                     AdditionalMethods.removeAsteroid(i);
                     if (Stage.lives == 0) {
                         Stage.gameOver = true;
-                        //Stage.gameOn = false;
                     }
                 }
             }
@@ -102,7 +97,6 @@ public class AdditionalMethods {
                     if (bullets.size() > 0) {
                         Bullet temp = bullets.get(j);
                         if (temp.collidesWith(Stage.roids[i].hitBox)) {
-                            stopAllSounds();
                             AdditionalMethods.explosionAsteroid.play();
                             Stage.score += 25 * Stage.roids[i].scale;
                             addExplosion(Stage.roids[i].xPos, Stage.roids[i].yPos);
@@ -162,11 +156,5 @@ public class AdditionalMethods {
         explosionAsteroid = new Sound("explosion2.wav");
         explosionShip = new Sound("explosion.wav");
         teleport = new Sound("fire.wav");
-    }
-
-    public static void stopAllSounds() {
-        //spawn.stop();
-        //laser.stop();
-        //explosion.stop();
     }
 }

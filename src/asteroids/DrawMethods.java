@@ -1,18 +1,8 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package asteroids;
 
-import java.util.*;
-import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.AffineTransform;
 
-/**
- *
- * @author erikprice
- */
 public abstract class DrawMethods {
 
     public static void drawBackground(Graphics g) {

@@ -94,8 +94,6 @@ public class Ship {
     }
 
     public Bullet fire() {
-        AdditionalMethods.stopAllSounds();
-
         int newX = (int) (xPos + ((this.hitBox.width) / 2) + 2 * Math.cos(degrees));
         int newY = (int) (yPos + ((this.hitBox.height) / 2) + 2 * Math.sin(degrees));
         int xDir = moveSpeed * xMove;

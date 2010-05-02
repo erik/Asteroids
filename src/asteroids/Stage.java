@@ -1,12 +1,8 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package asteroids;
 
 import java.awt.*;
 import java.awt.event.*;
-import java.awt.geom.AffineTransform;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -14,8 +10,7 @@ import java.util.logging.Logger;
 import javax.swing.*;
 
 /**
- *
- * @author judithprice
+ * TODO: make getters and setters, not public static everything, damn it!
  */
 public class Stage extends JPanel implements ActionListener {
 
@@ -58,9 +53,6 @@ public class Stage extends JPanel implements ActionListener {
 
         asteroidCount = 5;
 
-        //roids = new Asteroid[asteroidCount];
-        //AdditionalMethods.instantiateAsteroids();
-
         lives = 3;
         score = 0;
 
@@ -73,13 +65,10 @@ public class Stage extends JPanel implements ActionListener {
         clock.start();
 
         time = new Clock();
-
-        //AdditionalMethods.spawn.play();
     }
 
     public void actionPerformed(ActionEvent e) {
         fps = 1000 / (System.currentTimeMillis() - newFPS);
-        //if (!gameOver) {
         if (roids == null || roids.length == 0) {
             try {
                 AdditionalMethods.spawn.play();
@@ -90,11 +79,11 @@ public class Stage extends JPanel implements ActionListener {
             }
         }
         repaint();
-        //}
         newFPS = System.currentTimeMillis();
 
     }
 
+    @Override
     public void paintComponent(Graphics g) {
         if (gameOn) {
             super.paintComponent(g);
@@ -140,17 +129,14 @@ public class Stage extends JPanel implements ActionListener {
                 DrawMethods.drawPauseScreen(g);
             }
         }
-        //AdditionalMethods.stopAllSounds();
     }
 
     public void parseInput() {
         if (keyRight) {
             craft.rotate(radians);
-            // keyRight = false;
         }
         if (keyLeft) {
             craft.rotate(-radians);
-            //keyLeft = false;
         }
         if (keyUp) {
             craft.move(new Point(moveAmt, -moveAmt));
@@ -179,7 +165,6 @@ public class Stage extends JPanel implements ActionListener {
         if (keyStart) {
             keyStart = false;
             if (gameOver || !Stage.gameOn) {
-                AdditionalMethods.stopAllSounds();
                 AdditionalMethods.spawn.play();
                 replay = true;
                 Stage.score = 0;
@@ -202,7 +187,7 @@ public class Stage extends JPanel implements ActionListener {
     }
 
     public void setBackground(Image img) {
-        this.background = img;
+        background = img;
     }
 
     @SuppressWarnings("empty-statement")
